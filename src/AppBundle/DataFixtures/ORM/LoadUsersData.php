@@ -49,7 +49,7 @@ class LoadUsersData implements FixtureInterface, ContainerAwareInterface
         $userManager->updateUser($adminUser);
         $userManager->updateUser($user);
 
-        for($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $userManager->updateUser($this->getRandomUser());
         }
 
