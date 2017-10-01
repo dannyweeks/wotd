@@ -22,10 +22,10 @@ class AdminController extends Controller
      */
     public function userAction()
     {
-        $userManager = $this->get('fos_user.user_manager');
+        $userRepository = $this->getDoctrine()->getRepository('AppBundle:User');
 
         return $this->render('admin/user/index.html.twig', [
-            'users' => $userManager->findUsers(),
+            'users' => $userRepository->findBy([], ['lastName' => 'ASC', 'firstName' => 'ASC']),
         ]);
     }
 
@@ -83,7 +83,7 @@ class AdminController extends Controller
         $wordRepository = $this->getDoctrine()->getRepository('AppBundle:Word');
 
         return $this->render('admin/word/index.html.twig', [
-            'words' => $wordRepository->findAll(),
+            'words' => $wordRepository->findBy([], ['word' => 'ASC']),
         ]);
     }
 
