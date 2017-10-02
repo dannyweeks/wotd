@@ -25,7 +25,7 @@ class AdminController extends Controller
         $userRepository = $this->getDoctrine()->getRepository('AppBundle:User');
 
         return $this->render('admin/user/index.html.twig', [
-            'users' => $userRepository->findBy([], ['lastName' => 'ASC', 'firstName' => 'ASC']),
+            'users' => $userRepository->findAll(),
         ]);
     }
 
@@ -83,7 +83,7 @@ class AdminController extends Controller
         $wordRepository = $this->getDoctrine()->getRepository('AppBundle:Word');
 
         return $this->render('admin/word/index.html.twig', [
-            'words' => $wordRepository->findBy([], ['word' => 'ASC']),
+            'words' => $wordRepository->findAll(),
         ]);
     }
 

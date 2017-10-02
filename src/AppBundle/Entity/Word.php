@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @package AppBundle\Entity
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\WordRepository")
  * @ORM\HasLifecycleCallbacks
  *
  * @UniqueEntity("word", message="You can't re-use an existing word.")
