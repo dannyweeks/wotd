@@ -8,6 +8,14 @@ use Doctrine\ORM\EntityRepository;
 class WordRepository extends EntityRepository
 {
     /**
+     * @return Word[]
+     */
+    public function findAll()
+    {
+        return $this->findBy([], ['word' => 'ASC']);
+    }
+
+    /**
      * Get a random word that has not been assigned a date yet
      *
      * @return Word|null
@@ -20,7 +28,7 @@ class WordRepository extends EntityRepository
             ->andWhere($countQb->expr()->isNull('w.date'))
             ->setMaxResults(1);
 
-        // Clone the current query before we add the count aspect
+        // Clone the current query before we add the count constraint
         $qb = clone $countQb;
 
         $count = $countQb

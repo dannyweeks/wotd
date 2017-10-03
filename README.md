@@ -6,7 +6,7 @@ This readme is woefully inadequate right now. Sorry about that.
 
 ## Requirements
 
-* PHP >= 5.5.9 (for now)
+* PHP >= 7.1
 * `mysql` PHP extension
 * `curl` PHP extension
 * `sqlite` PHP Extension (dev)
@@ -33,3 +33,27 @@ bin/console doctrine:fixtures:load
 bin/console server:run
 ```
 
+### Automation!
+
+#### Dev Mode
+
+```
+./setup.sh -d
+```
+#### Test Mode
+
+```
+./setup.sh -t
+```
+
+#### Production Mode
+
+```
+./setup.sh -p
+```
+
+#### Help Mode
+
+```
+./setup.sh -h
+```

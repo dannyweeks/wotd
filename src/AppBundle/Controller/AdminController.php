@@ -22,10 +22,10 @@ class AdminController extends Controller
      */
     public function userAction()
     {
-        $userManager = $this->get('fos_user.user_manager');
+        $userRepository = $this->getDoctrine()->getRepository('AppBundle:User');
 
         return $this->render('admin/user/index.html.twig', [
-            'users' => $userManager->findUsers(),
+            'users' => $userRepository->findAll(),
         ]);
     }
 
