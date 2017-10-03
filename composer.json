@@ -17,7 +17,7 @@
         }
     },
     "require": {
-        "php": ">=5.5.9",
+        "php": "~7.1",
         "ext-pdo_mysql": "*",
         "ext-curl": "*",
         "symfony/symfony": "3.3.*",
@@ -30,7 +30,8 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "ornicar/gravatar-bundle": "^1.1"
+        "ornicar/gravatar-bundle": "^1.1",
+        "doctrine/doctrine-migrations-bundle": "^1.0"
     },
     "require-dev": {
         "ext-pdo_sqlite": "*",
