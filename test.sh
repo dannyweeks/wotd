@@ -139,8 +139,7 @@ case "${1}" in
 
                 if [ "${tests}" = "false" ]; then
                     printf "\nSome unit/functional tests failed.\n"
-                    printf "You'll need to figure out why and fix any issues before this branch will pass a CI\
-build.\n"
+                    printf "You'll need to figure out why and fix any issues before this branch will pass a CI build.\n"
                 fi
 
                 printf "|----------------------------------------------------------------------------\n"

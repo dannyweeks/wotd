@@ -197,18 +197,6 @@ class Word
     }
 
     /**
-     * @param \DateTime $createdAt
-     *
-     * @return self
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
      * @return \DateTime
      */
     public function getUpdatedAt()
@@ -217,27 +205,15 @@ class Word
     }
 
     /**
-     * @param \DateTime $updatedAt
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
      * @ORM\PrePersist
      * @ORM\PreUpdate
      */
     public function updateTimestamps()
     {
-        if (!$this->getCreatedAt()) {
-            $this->setCreatedAt(new \DateTime());
+        if (!$this->createdAt) {
+            $this->createdAt = new \DateTime();
         }
 
-        $this->setUpdatedAt(new \DateTime());
+        $this->updatedAt = new \DateTime();
     }
 }

@@ -63,7 +63,20 @@ class LoadUsersData implements FixtureInterface, ContainerAwareInterface
      */
     protected function getRandomUser()
     {
-        $names = ['James','John','Robert','Michael','William','David','Richard','Charles','Joseph','Thomas','Christopher','Daniel'];
+        $names = [
+            'James',
+            'John',
+            'Robert',
+            'Michael',
+            'William',
+            'David',
+            'Richard',
+            'Charles',
+            'Joseph',
+            'Thomas',
+            'Christopher',
+            'Daniel'
+        ];
 
         $firstname = $names[rand(0, count($names) - 1)];
         $surname = $names[rand(0, count($names) - 1)];
