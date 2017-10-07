@@ -20,29 +20,25 @@ class WordRepository extends EntityRepository
      *
      * @return Word|null
      */
-    public function getAFreshWord()
+    public function getOneRandom()
     {
-        // Create the base query
-        $countQb = $this->createQueryBuilder('w');
-        $countQb
-            ->andWhere($countQb->expr()->isNull('w.date'))
-            ->setMaxResults(1);
+        $qb = $this->createQueryBuilder('w');
 
-        // Clone the current query before we add the count constraint
-        $qb = clone $countQb;
-
-        $count = $countQb
+        $count = $qb
             ->select('COUNT(w)')
+            ->where('w.date IS NULL')
             ->getQuery()
             ->getSingleScalarResult();
 
-        if ($count == 0) {
+        if (!$count) {
             return null;
         }
 
-        // Using the offset fetch a random row
-        $qb->setFirstResult(rand(0, $count - 1));
-
-        return $qb->getQuery()->getOneOrNullResult();
+        return $qb
+            ->select('w')
+            ->setFirstResult(rand(0, $count - 1))
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }

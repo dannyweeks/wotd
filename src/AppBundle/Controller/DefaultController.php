@@ -49,7 +49,7 @@ class DefaultController extends Controller
             throw $this->createNotFoundException();
         }
 
-        if (!$word && $word = $wordRepository->getAFreshWord()) {
+        if (!$word && $word = $wordRepository->getOneRandom()) {
             $word->setDate(new \DateTime());
 
             $entityManager->flush();
